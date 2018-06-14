@@ -1,0 +1,32 @@
+{
+    "name": "dthvega/omnipay-easyeft",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+      "omnipay/common": "~2.0"
+    },
+  "require-dev": {
+    "omnipay/tests": "~2.0"
+  },
+  "autoload": {
+    "psr-4": { "Omnipay\\Easyeft\\" : "src/" }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "homepage": "https://github.com/dthvega/omnipay-easyeft",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "easyeft",
+    "easyeft",
+    "omnipay"
+  ],
+    "authors": [
+        {
+            "name": "Rickus Vega",
+            "email": "rickusvega@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
