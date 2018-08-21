@@ -33,24 +33,14 @@ class FetchTransactionRequest extends AbstractRequest
 
     public function sendData($data)
     {
-        $this->httpClient->getEventDispatcher()->addListener(
-            'request.error',
-            function ($event) {
-                if ($event['response']->isClientError()) {
-                    $event->stopPropagation();
-                }
-            }
-        );
-        $httpRequest = $this->httpClient->createRequest(
+
+        $httpResponse = $this->httpClient->request(
             'GET',
             sprintf('%s?%s', $this->getEndpoint(), http_build_query($data)),
             ['Accept' => 'application/json', 'apiKey' => $this->getApiKey()]
         );
-
-        $httpResponse  = $httpRequest->send();
-
         try {
-            $data = $httpResponse->json()[0];
+            $data = json_decode($httpResponse->getBody()->getContents(),true)[0];
         } catch (\Exception $e) {
             $data = [];
         }
